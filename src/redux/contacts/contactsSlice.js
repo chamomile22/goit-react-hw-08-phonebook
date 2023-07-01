@@ -11,8 +11,10 @@ const initialState = {
   error: null,
 };
 
-const isPending = action => action.type.endsWith('/pending');
-const isRejected = action => action.type.endsWith('/rejected');
+const isPending = action =>
+  action.type.endsWith('/pending') && action.type.includes('contacts');
+const isRejected = action =>
+  action.type.endsWith('/rejected') && action.type.includes('contacts');
 
 const handlePending = state => {
   state.isLoading = true;

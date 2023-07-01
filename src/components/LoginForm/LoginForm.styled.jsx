@@ -1,36 +1,30 @@
 import styled from '@emotion/styled';
 
-export const ContactsForm = styled.form`
-  width: 370px;
-  display: inline-block;
-  padding-top: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
+export const Form = styled.form`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 260px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 40px;
   padding-bottom: 30px;
 
   background-color: white;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-radius: 23px;
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.19);
-`;
 
-export const FormHeading = styled.p`
-  margin-bottom: 10px;
-  text-align: center;
-  font-size: 20px;
-  font-weight: 700;
+  transform: translate(-50%, -50%);
 `;
 
 export const Label = styled.label`
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
-
-  &:not(:last-child) {
-    margin-bottom: 20px;
-  }
 `;
 
-export const InputLabel = styled.span`
+export const LabelContent = styled.span`
   margin-left: 15px;
   margin-bottom: 5px;
   color: rgb(87, 87, 87);
@@ -38,7 +32,7 @@ export const InputLabel = styled.span`
   font-weight: 700;
 `;
 
-export const InputField = styled.input`
+export const Input = styled.input`
   height: 30px;
   padding-left: 15px;
   padding-right: 15px;
@@ -51,9 +45,9 @@ export const InputField = styled.input`
   }
 `;
 
-export const BtnSubmit = styled.button`
+export const BtnLogin = styled.button`
   display: block;
-  width: 130px;
+  width: 100px;
   height: 40px;
   margin-top: 35px;
   margin-left: auto;

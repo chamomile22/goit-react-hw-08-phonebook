@@ -6,11 +6,12 @@ import {
   InputLabel,
   InputField,
   BtnSubmit,
+  FormHeading,
 } from './Form.styled';
 import { nanoid } from 'nanoid';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 import { toast } from 'react-toastify';
-import { addContactThunk } from 'redux/operations';
+import { addContactThunk } from 'redux/contacts/operations';
 
 export const Form = () => {
   const [name, setName] = useState('');
@@ -64,32 +65,35 @@ export const Form = () => {
   };
 
   return (
-    <ContactsForm onSubmit={handleSubmit}>
-      <Label>
-        <InputLabel>Name</InputLabel>
-        <InputField
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleChange}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-      </Label>
-      <Label>
-        <InputLabel>Number</InputLabel>
-        <InputField
-          type="tel"
-          name="number"
-          value={number}
-          onChange={handleChange}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </Label>
-      <BtnSubmit type="submit">Add contact</BtnSubmit>
-    </ContactsForm>
+    <>
+      <ContactsForm onSubmit={handleSubmit}>
+        <FormHeading>Add new contact</FormHeading>
+        <Label>
+          <InputLabel>Name</InputLabel>
+          <InputField
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
+        </Label>
+        <Label>
+          <InputLabel>Number</InputLabel>
+          <InputField
+            type="tel"
+            name="number"
+            value={number}
+            onChange={handleChange}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+        </Label>
+        <BtnSubmit type="submit">Add contact</BtnSubmit>
+      </ContactsForm>
+    </>
   );
 };
